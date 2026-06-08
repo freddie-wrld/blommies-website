@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blommies Blooms | Bothaville Florist & Gift Shop</title>
+    <!-- Tailwind CSS CDN for instant styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;500;600;700&family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9F8F6;
+            color: #2B2B2B;
+        }
+        .font-serif {
+            font-family: 'Bodoni Moda', serif;
+        }
+        .font-script {
+            font-family: 'Herr Von Muellerhoff', cursive;
+        }
+        .bg-brand-rose {
+            background-color: #C68B8B;
+        }
+        .text-brand-rose {
+            color: #C68B8B;
+        }
+        .border-brand-rose {
+            border-color: #C68B8B;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY NAVIGATION BAR WITH LOGO FROM image_c33f87.png -->
+    <header class="sticky top-0 z-50 bg-[#F9F8F6]/95 backdrop-blur-md border-b border-gray-200 py-3 px-6 md:px-12 flex justify-between items-center">
+        <!-- Integrated Logo Brand Block -->
+        <div class="flex flex-col items-center relative pt-4 pb-2 select-none">
+            <!-- Vector Rose Icon matching image_c33f87.png layout -->
+            <svg class="w-16 h-8 text-[#2B2B2B] opacity-80" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Center Rose Petals -->
+                <path d="M50 20 C45 15, 55 15, 50 20 Z" />
+                <path d="M50 18 C42 10, 58 10, 50 18 Z" />
+                <path d="M48 22 C38 16, 42 28, 48 22 Z" />
+                <path d="M52 22 C62 16, 58 28, 52 22 Z" />
+                <!-- Outer Petals -->
+                <path d="M45 20 C35 25, 45 35, 50 25 C55 35, 65 25, 55 20" />
+                <!-- Leaves Left -->
+                <path d="M40 18 C30 15, 32 25, 42 21" />
+                <path d="M35 16 L25 18 C28 22, 35 20, 35 16 Z" />
+                <!-- Stem & Bud Left -->
+                <path d="M30 22 C20 24, 18 20, 12 24" />
+                <path d="M12 24 C10 22, 14 18, 16 20 Z" />
+                <!-- Leaves Right -->
+                <path d="M58 19 C68 16, 65 26, 56 22" />
+                <path d="M60 21 L72 23" />
+            </svg>
+            <!-- BLOMMIES Font Representation -->
+            <span class="font-serif text-2xl tracking-widest font-light leading-none -mt-1">BLOMMIES</span>
+            <div class="w-full h-[1px] bg-gray-300 mt-1 relative">
+                <!-- Elegant script overlay for "Renata" matching image_c33f87.png position -->
+                <span class="font-script text-3xl absolute -right-2 -top-4 text-gray-500 transform rotate-[-5deg] tracking-normal">Renata</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 md:gap-6">
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600" aria-label="Site navigation">
+                <a href="/" class="text-[#C68B8B] font-semibold border-b-2 border-[#C68B8B] pb-0.5">Home</a>
+                <a href="/gallery.html" class="hover:text-[#C68B8B] transition-colors">Gallery</a>
+            </nav>
+            <a href="tel:+27795249910" class="hidden lg:inline-flex items-center text-sm font-medium hover:text-[#C68B8B] transition">
+                📞 Call 079 524 9910
+            </a>
+            <a href="https://wa.me/27795249910?text=Hi%20Blommies!%20I%20visited%20your%20website%20and%20would%20love%20to%20order%20some%20flowers." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full text-sm font-semibold tracking-wide shadow-sm transition flex items-center gap-2">
+                🟢 WhatsApp Order
+            </a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO -->
+    <section class="min-h-[85vh] grid grid-cols-1 lg:grid-cols-2 items-center border-b border-gray-100">
+        <div class="p-8 md:p-16 lg:p-24 space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-rose bg-[#C68B8B]/10 px-3 py-1 rounded-full">Bothaville Local Florist</span>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">
+                Fresh Blooms & Happy Vibes from Bothaville’s Teeny Tiny Church.
+            </h1>
+            <p class="text-gray-600 text-lg leading-relaxed max-w-xl">
+                From breathtaking custom bouquets to unforgettable event styling, we bring local elegance and warmth to every occasion. Hand-crafted with love by Renata, Adele, and the team.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <a href="https://wa.me/27795249910?text=Hi%20Blommies!%20I%20visited%20your%20website%20and%20would%20love%20to%20order%20some%20flowers." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-center px-8 py-4 rounded-full font-bold text-lg shadow-md transition-all">
+                    Order via WhatsApp
+                </a>
+                <a href="tel:+27795249910" class="border border-gray-300 hover:border-gray-400 text-center px-8 py-4 rounded-full font-bold text-lg transition-all">
+                    Call the Shop: 079 524 9910
+                </a>
+            </div>
+        </div>
+        <div class="h-64 lg:h-full min-h-[400px] w-full bg-gray-200 relative overflow-hidden">
+            <img src="Images/hero.jpg" alt="Blommies Flower Display" class="absolute inset-0 w-full h-full object-cover">
+        </div>
+    </section>
+
+    <!-- SECTION 2: CORE OFFERINGS -->
+    <section class="py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center space-y-4 mb-16">
+            <h2 class="font-serif text-3xl md:text-4xl">Our Floral Specialties</h2>
+            <p class="text-gray-500 max-w-lg mx-auto">Fresh, hand-selected stems tailored perfectly to celebrate life's beautiful moments.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Bouquets -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 flex flex-col">
+                <div class="h-64 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600&auto=format&fit=crop" alt="Seasonal Bouquets" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="font-serif text-xl font-medium">Custom & Seasonal Bouquets</h3>
+                        <p class="text-gray-600 text-sm mt-2 leading-relaxed">
+                            Brighten someone’s day or celebrate a milestone. We curate vibrant, fresh-cut daily bunches wrapped beautifully in our signature rustic style.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">Starting from R120</div>
+                        <a href="https://wa.me/27795249910?text=Hi%20Blommies!%20I%20would%20like%20to%20order%20a%20Custom%20Seasonal%20Bouquet." target="_blank" class="block text-center w-full bg-gray-50 hover:bg-[#C68B8B]/10 hover:text-brand-rose font-semibold py-2 rounded-xl text-sm transition-all">
+                            Order a Bouquet
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Event Layouts -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 flex flex-col">
+                <div class="h-64 bg-gray-100 overflow-hidden">
+                    <img src="Images/weddingstyling.jpg" alt="Bespoke Event Styling" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="font-serif text-xl font-medium"> Event & Wedding Styling</h3>
+                        <p class="text-gray-600 text-sm mt-2 leading-relaxed">
+                            Turning your special moments into living art. From intimate chapel ceremonies to grand reception table settings, we tailor every detail to match your dream aesthetic.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">Let's discuss your vision</div>
+                        <a href="https://wa.me/27795249910?text=Hi%20Blommies!%20I%20would%20like%20to%20book%20a%20consultation%20for%20an%20event." target="_blank" class="block text-center w-full bg-gray-50 hover:bg-[#C68B8B]/10 hover:text-brand-rose font-semibold py-2 rounded-xl text-sm transition-all">
+                            Book a Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Hampers -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 flex flex-col">
+                <div class="h-64 bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=600&auto=format&fit=crop" alt="Curated Gift Boxes" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="font-serif text-xl font-medium">Curated Gift Boxes & Hampers</h3>
+                        <p class="text-gray-600 text-sm mt-2 leading-relaxed">
+                            Pair your blooms with premium, 100% natural local luxuries. Featuring Angel Factory self-care products, custom treats, and thoughtful gift arrangements.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">Perfect for special occasions</div>
+                        <a href="https://wa.me/27795249910?text=Hi%20Blommies!%20I%20am%20interested%20in%20ordering%20a%20Curated%20Gift%20Box%20or%20Hamper." target="_blank" class="block text-center w-full bg-gray-50 hover:bg-[#C68B8B]/10 hover:text-brand-rose font-semibold py-2 rounded-xl text-sm transition-all">
+                            View Gift Options
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: MASONRY PORTFOLIO GALLERY -->
+    <section class="py-16 bg-white border-t border-b border-gray-100 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <div class="text-center space-y-2">
+                <h2 class="font-serif text-3xl md:text-4xl">Handcrafted with Passion, Grown for Joy</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-sm md:text-base">
+                    Take a look at some of our favorite recent creations fresh out of the shop. See something you love? Screenshot it and send it straight to us on WhatsApp!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="h-64 bg-gray-100 rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=500&auto=format&fit=crop" alt="Vibrant flowers" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="h-64 bg-gray-100 rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=500&auto=format&fit=crop" alt="Elegant orchids" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="h-64 bg-gray-100 rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1533616688419-b7a585564566?q=80&w=500&auto=format&fit=crop" alt="Sunflowers" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="h-64 bg-gray-100 rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=500&auto=format&fit=crop" alt="Rose posies" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: ABOUT US -->
+    <section class="bg-[#F0E6E6] py-16 md:py-24 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 order-2 lg:order-1">
+                <h2 class="font-serif text-3xl md:text-4xl">Meet Renata & Adele</h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed text-base md:text-lg">
+                    <p>
+                        Blommies isn't just a flower shop—it's a passion project built on all-round happy vibes. Nestled inside our iconic teeny tiny church right here in Bothaville, we believe that flowers have a unique language of comfort, celebration, and love.
+                    </p>
+                    <p>
+                        Whether you’re stopping by 29 Botha Street to grab a quick bunch of roses, planning your dream wedding layout, or wanting to surprise someone with a beautifully curated gift box, we pour our hearts into every single stem. Come pop in, smell the lilies, and let's create something beautiful together.
+                    </p>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 bg-white p-3 rounded-3xl shadow-sm rotate-1 hover:rotate-0 transition-all duration-300 max-w-md mx-auto w-full">
+                <div class="rounded-2xl overflow-hidden bg-gray-200 aspect-square">
+                    <img src="https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=600&auto=format&fit=crop" alt="Renata and Adele - Blommies Founders" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FOOTER WITH THE COMPLEMENTARY LOGO -->
+    <footer class="bg-[#2B2B2B] text-gray-300 py-16 px-6 md:px-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            
+            <div class="space-y-4">
+                <h4 class="font-serif text-xl text-white tracking-wide">Get In Touch</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-2">
+                        <span>📍</span>
+                        <span>29 Botha Street, Bothaville, Free State, 9660</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>📞</span>
+                        <a href="tel:+27795249910" class="hover:text-white transition">079 524 9910</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>✉️</span>
+                        <a href="mailto:hello@blommiesblooms.com" class="hover:text-white transition">hello@blommiesblooms.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="font-serif text-xl text-white tracking-wide">Hours & Delivery</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex justify-between border-b border-gray-800 pb-2">
+                        <span>Monday – Friday:</span>
+                        <span class="text-gray-300">Shop Hours / Deliveries</span>
+                    </li>
+                    <li class="flex justify-between pt-1">
+                        <span>Saturday:</span>
+                        <span class="text-gray-300">Special orders & Events by arrangement</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Styled Vector Logo block in Footer -->
+            <div class="space-y-4 md:text-right flex flex-col md:items-end">
+                <div class="flex flex-col items-center relative pt-4 pb-2 select-none text-white w-48">
+                    <svg class="w-16 h-8 opacity-90" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M50 20 C45 15, 55 15, 50 20 Z" />
+                        <path d="M50 18 C42 10, 58 10, 50 18 Z" />
+                        <path d="M48 22 C38 16, 42 28, 48 22 Z" />
+                        <path d="M52 22 C62 16, 58 28, 52 22 Z" />
+                        <path d="M45 20 C35 25, 45 35, 50 25 C55 35, 65 25, 55 20" />
+                        <path d="M40 18 C30 15, 32 25, 42 21" />
+                        <path d="M35 16 L25 18 C28 22, 35 20, 35 16 Z" />
+                        <path d="M30 22 C20 24, 18 20, 12 24" />
+                        <path d="M12 24 C10 22, 14 18, 16 20 Z" />
+                        <path d="M58 19 C68 16, 65 26, 56 22" />
+                        <path d="M60 21 L72 23" />
+                    </svg>
+                    <span class="font-serif text-2xl tracking-widest font-light leading-none -mt-1">BLOMMIES</span>
+                    <div class="w-full h-[1px] bg-gray-600 mt-1 relative">
+                        <span class="font-script text-3xl absolute -right-2 -top-4 text-gray-400 transform rotate-[-5deg] tracking-normal">Renata</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 italic max-w-xs md:ml-auto pt-2">
+                    Crafted with elegance, local pride, and happy vibes out of a lovely tiny church. Follow our story for daily flower inspiration.
+                </p>
+                <div class="flex md:justify-end gap-4 text-xs font-semibold text-gray-400 pt-2">
+                    <a href="https://www.instagram.com/blommiesblooms" target="_blank" class="hover:text-white transition">Instagram: @blommiesblooms</a>
+                    <a href="#" class="hover:text-white transition">Facebook</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-4">
+            <div>&copy; 2026 Blommies. All rights reserved.</div>
+            <div>Beautifully crafted in Bothaville, South Africa.</div>
+        </div>
+    </footer>
+
+</body>
+</html>

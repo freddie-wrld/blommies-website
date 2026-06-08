@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work Gallery | Blommies Blooms</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;500;600;700&family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9F8F6;
+            color: #2B2B2B;
+        }
+        .font-serif { font-family: 'Bodoni Moda', serif; }
+        .font-script { font-family: 'Herr Von Muellerhoff', cursive; }
+        .bg-brand-rose { background-color: #C68B8B; }
+        .text-brand-rose { color: #C68B8B; }
+        .border-brand-rose { border-color: #C68B8B; }
+
+        .gallery-item img {
+            transition: transform 0.45s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+        .gallery-item .caption-overlay {
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .caption-overlay,
+        .gallery-item:focus-within .caption-overlay {
+            transform: translateY(0);
+        }
+
+        #lightbox { display: none; }
+        #lightbox.active { display: flex; }
+
+        #lightbox-img {
+            max-height: 80vh;
+            max-width: min(90vw, 1100px);
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-[#F9F8F6]/95 backdrop-blur-md border-b border-gray-200 py-3 px-6 md:px-12 flex justify-between items-center">
+        <a href="/" class="flex flex-col items-center relative pt-4 pb-2 select-none no-underline">
+            <svg class="w-16 h-8 text-[#2B2B2B] opacity-80" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M50 20 C45 15, 55 15, 50 20 Z" />
+                <path d="M50 18 C42 10, 58 10, 50 18 Z" />
+                <path d="M48 22 C38 16, 42 28, 48 22 Z" />
+                <path d="M52 22 C62 16, 58 28, 52 22 Z" />
+                <path d="M45 20 C35 25, 45 35, 50 25 C55 35, 65 25, 55 20" />
+                <path d="M40 18 C30 15, 32 25, 42 21" />
+                <path d="M35 16 L25 18 C28 22, 35 20, 35 16 Z" />
+                <path d="M30 22 C20 24, 18 20, 12 24" />
+                <path d="M12 24 C10 22, 14 18, 16 20 Z" />
+                <path d="M58 19 C68 16, 65 26, 56 22" />
+                <path d="M60 21 L72 23" />
+            </svg>
+            <span class="font-serif text-2xl tracking-widest font-light leading-none -mt-1 text-[#2B2B2B]">BLOMMIES</span>
+            <div class="w-full h-[1px] bg-gray-300 mt-1 relative">
+                <span class="font-script text-3xl absolute -right-2 -top-4 text-gray-500 transform rotate-[-5deg] tracking-normal">Renata</span>
+            </div>
+        </a>
+
+        <div class="flex items-center gap-4 md:gap-6">
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600" aria-label="Site navigation">
+                <a href="/" class="hover:text-[#C68B8B] transition-colors">Home</a>
+                <a href="/gallery.html" class="text-[#C68B8B] font-semibold border-b-2 border-[#C68B8B] pb-0.5">Gallery</a>
+            </nav>
+            <a href="tel:+27795249910" class="hidden lg:inline-flex items-center text-sm font-medium hover:text-[#C68B8B] transition-colors">
+                📞 Call 079 524 9910
+            </a>
+            <a href="https://wa.me/27795249910?text=Hi%20Blommies!%20I%20visited%20your%20website%20and%20would%20love%20to%20order%20some%20flowers." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full text-sm font-semibold tracking-wide shadow-sm transition flex items-center gap-2">
+                🟢 WhatsApp Order
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- PAGE HEADER -->
+        <section class="py-16 md:py-20 px-6 md:px-12 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto text-center space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-rose bg-[#C68B8B]/10 px-3 py-1 rounded-full">Our Portfolio</span>
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight">What We've Created</h1>
+                <p class="text-gray-500 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+                    From intimate bouquets to grand wedding arrangements — a look back at our favourite creations. Click any image to view it in full.
+                </p>
+            </div>
+        </section>
+
+        <!-- GALLERY GRID -->
+        <section class="py-12 md:py-16 px-6 md:px-12">
+            <div class="max-w-7xl mx-auto">
+                <div
+                    id="gallery-grid"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5"
+                    role="list"
+                    aria-label="Floral work gallery"
+                >
+                    <!-- Populated by JavaScript below -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div
+        id="lightbox"
+        class="fixed inset-0 z-[200] bg-black/92 items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Image viewer"
+    >
+        <!-- Close -->
+        <button
+            id="lb-close"
+            class="absolute top-4 right-5 text-white/60 hover:text-white text-5xl font-thin leading-none transition-colors z-10"
+            aria-label="Close image viewer"
+        >×</button>
+
+        <!-- Previous -->
+        <button
+            id="lb-prev"
+            class="absolute left-2 md:left-5 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-6xl leading-none transition-colors select-none z-10 p-2"
+            aria-label="Previous image"
+        >‹</button>
+
+        <!-- Next -->
+        <button
+            id="lb-next"
+            class="absolute right-2 md:right-5 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-6xl leading-none transition-colors select-none z-10 p-2"
+            aria-label="Next image"
+        >›</button>
+
+        <!-- Image + caption -->
+        <div class="flex flex-col items-center justify-center w-full px-16 md:px-24 text-center">
+            <img
+                id="lightbox-img"
+                src=""
+                alt=""
+                class="rounded-xl shadow-2xl"
+            />
+            <p id="lightbox-caption" class="mt-5 text-white/75 text-sm md:text-base font-medium max-w-xl leading-relaxed"></p>
+            <p id="lightbox-counter" class="mt-2 text-white/35 text-xs tracking-widest"></p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#2B2B2B] text-gray-300 py-16 px-6 md:px-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+
+            <div class="space-y-4">
+                <h4 class="font-serif text-xl text-white tracking-wide">Get In Touch</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-2">
+                        <span>📍</span>
+                        <span>29 Botha Street, Bothaville, Free State, 9660</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>📞</span>
+                        <a href="tel:+27795249910" class="hover:text-white transition">079 524 9910</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>✉️</span>
+                        <a href="mailto:hello@blommiesblooms.com" class="hover:text-white transition">hello@blommiesblooms.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="font-serif text-xl text-white tracking-wide">Hours &amp; Delivery</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex justify-between border-b border-gray-800 pb-2">
+                        <span>Monday – Friday:</span>
+                        <span class="text-gray-300">Shop Hours / Deliveries</span>
+                    </li>
+                    <li class="flex justify-between pt-1">
+                        <span>Saturday:</span>
+                        <span class="text-gray-300">Special orders &amp; Events by arrangement</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-y-4 md:text-right flex flex-col md:items-end">
+                <div class="flex flex-col items-center relative pt-4 pb-2 select-none text-white w-48">
+                    <svg class="w-16 h-8 opacity-90" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M50 20 C45 15, 55 15, 50 20 Z" />
+                        <path d="M50 18 C42 10, 58 10, 50 18 Z" />
+                        <path d="M48 22 C38 16, 42 28, 48 22 Z" />
+                        <path d="M52 22 C62 16, 58 28, 52 22 Z" />
+                        <path d="M45 20 C35 25, 45 35, 50 25 C55 35, 65 25, 55 20" />
+                        <path d="M40 18 C30 15, 32 25, 42 21" />
+                        <path d="M35 16 L25 18 C28 22, 35 20, 35 16 Z" />
+                        <path d="M30 22 C20 24, 18 20, 12 24" />
+                        <path d="M12 24 C10 22, 14 18, 16 20 Z" />
+                        <path d="M58 19 C68 16, 65 26, 56 22" />
+                        <path d="M60 21 L72 23" />
+                    </svg>
+                    <span class="font-serif text-2xl tracking-widest font-light leading-none -mt-1">BLOMMIES</span>
+                    <div class="w-full h-[1px] bg-gray-600 mt-1 relative">
+                        <span class="font-script text-3xl absolute -right-2 -top-4 text-gray-400 transform rotate-[-5deg] tracking-normal">Renata</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 italic max-w-xs md:ml-auto pt-2">
+                    Crafted with elegance, local pride, and happy vibes out of a lovely tiny church. Follow our story for daily flower inspiration.
+                </p>
+                <div class="flex md:justify-end gap-4 text-xs font-semibold text-gray-400 pt-2">
+                    <a href="https://www.instagram.com/blommiesblooms" target="_blank" class="hover:text-white transition">Instagram: @blommiesblooms</a>
+                    <a href="#" class="hover:text-white transition">Facebook</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-4">
+            <div>&copy; 2026 Blommies. All rights reserved.</div>
+            <div>Beautifully crafted in Bothaville, South Africa.</div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================================
+        // GALLERY DATA — replace src URLs with real images when ready
+        // ============================================================
+        const GALLERY = [
+            {
+                src: "https://picsum.photos/seed/blommies-wedding/1200/800",
+                alt: "Bridal bouquet with white roses and eucalyptus",
+                caption: "Bridal Bouquet — Spring Wedding at Bothaville Church, 2024"
+            },
+            {
+                src: "https://picsum.photos/seed/blommies-birthday/1200/800",
+                alt: "Vibrant mixed flower birthday arrangement",
+                caption: "Custom Birthday Arrangement — Sunflowers, Gerberas & Greenery"
+            },
+            {
+                src: "https://picsum.photos/seed/blommies-event/1200/800",
+                alt: "Reception table centrepiece with pink and cream flowers",
+                caption: "Reception Table Centrepieces — Garden Party, March 2024"
+            },
+            {
+                src: "https://picsum.photos/seed/blommies-hamper/1200/800",
+                alt: "Curated gift hamper with flowers and Angel Factory products",
+                caption: "Premium Gift Hamper — Flowers & Angel Factory Self-Care Products"
+            }
+        ];
+
+        // ============================================================
+        // Netlify Image CDN helpers
+        // ============================================================
+        function cdnUrl(src, w, h, q) {
+            const params = new URLSearchParams({
+                url: src,
+                w: w,
+                h: h,
+                fit: "cover",
+                fm: "avif",
+                q: q || 80
+            });
+            return "/.netlify/images?" + params.toString();
+        }
+
+        function cdnSrcset(src, thumbH) {
+            return [400, 800, 1200]
+                .map(function(w) {
+                    var h = Math.round(thumbH * w / 400);
+                    return cdnUrl(src, w, h) + " " + w + "w";
+                })
+                .join(", ");
+        }
+
+        // ============================================================
+        // Build gallery grid
+        // ============================================================
+        var grid = document.getElementById("gallery-grid");
+        var THUMB_H = 300; // thumbnail height at 400px wide (4:3 ratio)
+
+        GALLERY.forEach(function(item, index) {
+            // First row: up to 4 columns on xl screens → indices 0-3
+            var isFirstRow = index < 4;
+
+            var article = document.createElement("article");
+            article.className = "gallery-item group rounded-2xl overflow-hidden bg-gray-200 aspect-[4/3] relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C68B8B] focus-visible:ring-offset-2";
+            article.setAttribute("role", "listitem");
+            article.setAttribute("tabindex", "0");
+            article.setAttribute("aria-label", "View: " + item.alt);
+            article.dataset.index = index;
+
+            var img = document.createElement("img");
+            img.className = "w-full h-full object-cover";
+            img.src = cdnUrl(item.src, 400, THUMB_H);
+            img.srcset = cdnSrcset(item.src, THUMB_H);
+            img.sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw";
+            img.alt = item.alt;
+            img.width = 400;
+            img.height = 300;
+
+            if (index === 0) {
+                img.setAttribute("fetchpriority", "high");
+            } else if (!isFirstRow) {
+                img.loading = "lazy";
+            }
+
+            var overlay = document.createElement("div");
+            overlay.className = "caption-overlay absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 py-3";
+            overlay.innerHTML = '<p class="text-white text-xs md:text-sm font-medium leading-snug drop-shadow">' + item.caption + '</p>';
+
+            article.appendChild(img);
+            article.appendChild(overlay);
+            grid.appendChild(article);
+
+            article.addEventListener("click", function() { openLightbox(index); });
+            article.addEventListener("keydown", function(e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openLightbox(index);
+                }
+            });
+        });
+
+        // ============================================================
+        // Lightbox
+        // ============================================================
+        var lightbox = document.getElementById("lightbox");
+        var lbImg = document.getElementById("lightbox-img");
+        var lbCaption = document.getElementById("lightbox-caption");
+        var lbCounter = document.getElementById("lightbox-counter");
+        var currentIndex = 0;
+        var lastFocused = null;
+
+        function openLightbox(index) {
+            lastFocused = document.activeElement;
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+            document.getElementById("lb-close").focus();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
+            if (lastFocused) lastFocused.focus();
+        }
+
+        function updateLightbox() {
+            var item = GALLERY[currentIndex];
+            lbImg.src = cdnUrl(item.src, 1200, 900, 90);
+            lbImg.alt = item.alt;
+            lbCaption.textContent = item.caption;
+            lbCounter.textContent = (currentIndex + 1) + " / " + GALLERY.length;
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + GALLERY.length) % GALLERY.length;
+            updateLightbox();
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % GALLERY.length;
+            updateLightbox();
+        }
+
+        document.getElementById("lb-close").addEventListener("click", closeLightbox);
+        document.getElementById("lb-prev").addEventListener("click", showPrev);
+        document.getElementById("lb-next").addEventListener("click", showNext);
+
+        lightbox.addEventListener("click", function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener("keydown", function(e) {
+            if (!lightbox.classList.contains("active")) return;
+            if (e.key === "Escape")      closeLightbox();
+            if (e.key === "ArrowLeft")   showPrev();
+            if (e.key === "ArrowRight")  showNext();
+        });
+    </script>
+
+</body>
+</html>
