@@ -70,7 +70,7 @@
         </a>
 
         <div class="flex items-center gap-4 md:gap-6">
-            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600" aria-label="Site navigation">
+            <nav class="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm font-medium text-gray-600" aria-label="Site navigation">
                 <a href="/" class="hover:text-[#C68B8B] transition-colors">Home</a>
                 <a href="/gallery.html" class="text-[#C68B8B] font-semibold border-b-2 border-[#C68B8B] pb-0.5">Gallery</a>
             </nav>
@@ -233,24 +233,24 @@
         // ============================================================
         const GALLERY = [
             {
-                src: "https://picsum.photos/seed/blommies-wedding/1200/800",
-                alt: "Bridal bouquet with white roses and eucalyptus",
-                caption: "Bridal Bouquet — Spring Wedding at Bothaville Church, 2024"
+                src: "Images/adelevrou.jpg.png",
+                alt: "Adele with the Blommies floral display",
+                caption: "Blommies flower display — our signature local style"
             },
             {
-                src: "https://picsum.photos/seed/blommies-birthday/1200/800",
-                alt: "Vibrant mixed flower birthday arrangement",
-                caption: "Custom Birthday Arrangement — Sunflowers, Gerberas & Greenery"
+                src: "Images/hero.jpg",
+                alt: "Fresh flowers arranged for a special occasion",
+                caption: "Fresh bouquets and floral styling from the shop"
             },
             {
-                src: "https://picsum.photos/seed/blommies-event/1200/800",
-                alt: "Reception table centrepiece with pink and cream flowers",
-                caption: "Reception Table Centrepieces — Garden Party, March 2024"
+                src: "Images/weddingstyling.jpg",
+                alt: "Wedding styling and table arrangement",
+                caption: "Event and wedding styling for memorable celebrations"
             },
             {
-                src: "https://picsum.photos/seed/blommies-hamper/1200/800",
-                alt: "Curated gift hamper with flowers and Angel Factory products",
-                caption: "Premium Gift Hamper — Flowers & Angel Factory Self-Care Products"
+                src: "Images/blommiesLogo.jpg.jpeg",
+                alt: "Blommies Blooms logo",
+                caption: "The Blommies brand mark used across the business"
             }
         ];
 
@@ -269,11 +269,18 @@
             return "/.netlify/images?" + params.toString();
         }
 
-        function cdnSrcset(src, thumbH) {
+        function imageUrl(src, w, h, q) {
+            if (/^https?:\/\//i.test(src)) {
+                return cdnUrl(src, w, h, q);
+            }
+            return src;
+        }
+
+        function imageSrcset(src, thumbH) {
             return [400, 800, 1200]
                 .map(function(w) {
                     var h = Math.round(thumbH * w / 400);
-                    return cdnUrl(src, w, h) + " " + w + "w";
+                    return imageUrl(src, w, h, 80) + " " + w + "w";
                 })
                 .join(", ");
         }
@@ -297,8 +304,8 @@
 
             var img = document.createElement("img");
             img.className = "w-full h-full object-cover";
-            img.src = cdnUrl(item.src, 400, THUMB_H);
-            img.srcset = cdnSrcset(item.src, THUMB_H);
+            img.src = imageUrl(item.src, 400, THUMB_H, 80);
+            img.srcset = imageSrcset(item.src, THUMB_H);
             img.sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw";
             img.alt = item.alt;
             img.width = 400;
@@ -354,7 +361,7 @@
 
         function updateLightbox() {
             var item = GALLERY[currentIndex];
-            lbImg.src = cdnUrl(item.src, 1200, 900, 90);
+            lbImg.src = imageUrl(item.src, 1200, 900, 90);
             lbImg.alt = item.alt;
             lbCaption.textContent = item.caption;
             lbCounter.textContent = (currentIndex + 1) + " / " + GALLERY.length;
